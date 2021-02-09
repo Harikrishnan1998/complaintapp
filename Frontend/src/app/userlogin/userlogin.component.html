@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav navbar-right">
+ 
+      <!-- <a class="nav-link"  routerLink="/home">Home</a> -->
+        <a class="nav-link"  routerLink="/signup" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Signup</a>
+        <a class="nav-link"  routerLink="/userlogin">login</a>
+        <a class="nav-link"  routerLink="/login" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Admin Login</a>
+        <!-- <a class="nav-link"  routerLink="products">Complaint History</a> -->
+        
+        <!-- <a class="nav-link"   routerLink="authors">Authors</a> -->
+        <!-- <a class="nav-link" style="cursor:pointer" routerLink="/add">Register</a> -->
+        <!-- <a class="nav-link"  *ngIf="_auth.loggedIn()" routerLink="addauthor" >Add Author</a> -->
+        <!-- <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="logoutUser()">Logout</a> -->
+    </ul>
+    
+  </div>
+</nav>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="mb-0">Login</h3>
+        </div>
+        <div class="card-body"   >
+         
+          <form  #userlogin="ngForm" (ngSubmit)="login()">
+            <div >
+              <label>Email Id</label>
+              <input type="text" class="form-control"  name="email" #email="ngModel" [(ngModel)]="userData.email"  required/>
+               <small class="text-danger" [class.d-none]="email.touched">Email Id required</small> 
+              </div>
+            <div>
+              <label>Password</label>
+              <input type="password"  class="form-control" name="password" #password="ngModel" [(ngModel)]="userData.password" required/>
+              <small class="text-danger" [class.d-none]="password.touched">Password required</small> 
+              </div>
+            
+            <button type="submit" class="btn btn-primary float-right" [disabled]="userlogin.form.invalid">Login</button>
+          </form>                             
+        </div>
+       </div>
+     

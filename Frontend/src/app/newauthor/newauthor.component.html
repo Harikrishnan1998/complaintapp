@@ -1,0 +1,68 @@
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>
+          <p class="lead"></p>
+        </h1>
+      </div>
+      </div>
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div>
+  
+
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+<div class='card'>
+    <form (ngSubmit)="AddAuthor()">
+<div class='card-header'>
+ ADD AUTHOR
+</div>
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table'>       
+    
+      <tbody>  
+            
+            <tr>
+                <td><label>Author</label></td>
+                <td><input type="text" name="p_name" [(ngModel)]="authorItem.authorName"/></td>                  
+              </tr>  
+              
+              <tr>
+                <td><label>Genres</label></td>
+                <td><input type="text" name="p_date" [(ngModel)]="authorItem.genre"/></td>                  
+              </tr>  
+              <tr>
+                <td><label>Works</label></td>
+                <td><input type="text" name="p_price" [(ngModel)]="authorItem.works"/></td>                  
+              </tr>  
+             
+            
+              <tr>
+                <td><label>imageUrl</label></td>
+                <td><input type="text" name="p_image" [(ngModel)]="authorItem.imageUrl"/></td>                  
+              </tr>  
+              <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>                  
+              </tr>             
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+</div>

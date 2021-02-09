@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav navbar-right">
+ 
+      <!-- <a class="nav-link"  routerLink="/home">Home</a> -->
+        <!-- <a class="nav-link"  routerLink="/signup" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Signup</a> -->
+        <!-- <a class="nav-link"  routerLink="/login" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Login</a> -->
+        <a class="nav-link" style="cursor:pointer" routerLink="/products">Complaint History</a>
+        <!-- <a class="nav-link"  routerLink="/userlogin">userlogin</a> -->
+        <!-- <a class="nav-link"   routerLink="authors">Authors</a> -->
+        <a class="nav-link" style="cursor:pointer" routerLink="/add">Register</a>
+        <!-- <a class="nav-link"  *ngIf="_auth.loggedIn()" routerLink="addauthor" >Add Author</a> -->
+        <a class="nav-link" style="cursor:pointer"  (click)="logoutUser()">Logout</a>
+    </ul>
+    
+  </div>
+</nav>
+<br>
+
+
+
+<div class='card'>
+  <div class='card-header'>
+   {{title}}
+  </div>
+  
+  <div class='card-body'>            
+    <div class='table-responsive'>
+      <table class='table'
+            *ngIf = 'products && products.length'>
+        <thead>
+          <tr>
+            
+            <th>Name</th>
+            <th>Residential Number</th>
+            <th>House Name</th>
+            <th>Status</th>
+            <!-- <th>Phone</th>
+            <th>Email</th> -->
+          </tr>
+         
+        </thead>
+        <tbody>  
+            <tr *ngFor='let product of products'>
+
+                <td>{{ product.name }}</td>
+                <td>{{ product.rno }}</td>
+                <td>{{ product.housename }}</td>
+                <td>{{product.status}}</td>
+                <!-- <td>{{ product.email }}</td>
+                <td>{{ product.phno }}</td> -->
+                <td>
+                </td>
+                <a  [routerLink]="['/product', product._id]" *ngIf="_auth.loggedIn()" class="text" style="color:mediumblue; padding-top: 100px;">View</a>
+              <td>
+                  <button class="btn btn-warning" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="editProduct(product)" style="margin-left: 20px;"> Edit</button>
+                  <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteProduct(product)" > Delete</button>
+                </td>
+              </tr>              
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class='card'>
+    <form (ngSubmit)="editProduct()">
+<div class='card-header'>
+ Edit
+</div>
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table'>       
+    
+      <tbody>  
+      
+
+              
+              <tr>
+                <td>
+                Status:
+                <select name="cars" [(ngModel)]="productItem.status">
+                  <option value="pending">Pending</option>
+                  <option value="seen">Seen</option>
+                </select> </td>
+              </tr>
+                <input type="submit" value="Submit" />             
+                           
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+</div>

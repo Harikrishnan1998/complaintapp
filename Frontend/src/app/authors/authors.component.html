@@ -1,0 +1,84 @@
+ <div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>
+          <p class="lead"></p>
+        </h1>
+      </div>
+      </div>
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div>
+  
+
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body"> 
+<div class='card'>
+    <div class='card-header'>
+     {{pageTitle}}
+    </div>
+    
+    <div class='card-body'>            
+      <div class='table-responsive'>
+        <!-- <table class='table'
+              *ngIf = 'authors && authors.length'>
+          <thead>
+            <tr>
+              <th>
+                <button class='btn btn-primary'
+                (click)='toggleImage()'>
+                  {{showImage? 'Hide' : 'Show'}} Image
+                </button>
+              </th>
+              <th>Author</th>
+              <th>DOB</th>
+              <th>Genres</th>
+              <th>Works</th>
+              <th>Country</th>
+            </tr>
+           
+          </thead>
+          <tbody>   -->
+              <tr *ngFor='let author of authors'>
+                  <td><img 
+                    [src] = 'author.imageUrl' 
+                    [title] = 'author.authorName'
+                    [style.width.px] = 'imageWidth' 
+                    [style.height.px] = 'imageHeight' 
+                    [style.border-radius.px] = 'imageMargin'></td>
+                  <!-- <td>{{ author.authorName }}</td>
+                  <td>{{ author.authorCode }}</td>
+                  <td>{{ author.genre }}</td>
+                  <td>{{ author.works }}</td>
+                  <td>{{ author.country }}</td> -->
+                  <div class="move">
+                    <h4 style= "color: black;">{{author.authorName}}</h4>
+                   
+                        <h5 style= "color: black;"><span class="label label-default">{{author.genre}}</span></h5><h6>
+                        <small style="font-family:courier,'new courier';" class="text-muted">{{author.works}} </small>
+                        </h6><br>
+                      </div>
+                  <td>
+                    <button class="btn btn-warning" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="editAuthor(author)" style="margin-left: 20px;"> Edit</button>
+                    <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteAuthor(author)"> Delete</button>
+                  </td>
+                </tr>              
+          
+        
+      </div>
+    </div>
+  </div>
+   

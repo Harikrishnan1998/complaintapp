@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav navbar-right">
+ 
+      <!-- <a class="nav-link"  routerLink="/home">Home</a> -->
+        <!-- <a class="nav-link"  routerLink="/signup" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Signup</a> -->
+        <!-- <a class="nav-link"  routerLink="/login" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Login</a> -->
+        <a class="nav-link"  routerLink="products">Complaint History</a>
+        <!-- <a class="nav-link"  routerLink="/userlogin">userlogin</a> -->
+        <!-- <a class="nav-link"   routerLink="authors">Authors</a> -->
+        <a class="nav-link" style="cursor:pointer" routerLink="add">Register</a>
+        <!-- <a class="nav-link"  *ngIf="_auth.loggedIn()" routerLink="addauthor" >Add Author</a> -->
+        <a class="nav-link" style="cursor:pointer"  (click)="logoutUser()">Logout</a>
+    </ul>
+    
+  </div>
+</nav>
+<br>
+
+
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+<div class='card'>
+    <form  #userlogin="ngForm" (ngSubmit)="AddProduct()">
+<div class='card-header'>
+Complaint Registration Form
+</div>
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table' >       
+    
+      <tbody>  
+            
+            <tr>
+                <td><label>Name</label></td>
+                <td><input type="text" name="p_name" [(ngModel)]="productItem.name"/></td>                  
+              </tr>  
+             
+              <tr>
+                <td><label>Residential Number</label></td>
+                <td><input type="text" name="p_date" [(ngModel)]="productItem.rno"/></td>                  
+              </tr>  
+              <tr>
+                <td><label>House Name</label></td>
+                <td><input type="text" name="p_price" [(ngModel)]="productItem.housename"/></td>                  
+              </tr>  
+             
+               
+              <tr>
+                <td><label>Email Id</label></td>
+                <td><input type="text" name="p_image" [(ngModel)]="productItem.email"/></td>                  
+              </tr>
+              <tr>
+                <td><label>Phone Number</label></td>
+                <td><input type="text" name="p_image" [(ngModel)]="productItem.phno"/></td>                  
+              </tr>  <tr>
+                <td><label>Details</label></td>
+                <td><textarea cols="50" name="p_image" [(ngModel)]="productItem.details"></textarea></td>                  
+              </tr>  <tr>
+                <td><label >Document</label></td>
+                <td><input type="file" name="p_image" [(ngModel)]="productItem.doc"/></td>                  
+              </tr>   
+              <tr>
+              <td><label *ngIf="_auth.loggedIn()">Status</label></td>
+              <!-- <td><input *ngIf="_auth.loggedIn()" type="text" name="p_image" [(ngModel)]="productItem.status"/></td> 
+            --><select *ngIf="_auth.loggedIn()" name="cars" id="cars" [(ngModel)]="productItem.status">
+  <option value="pending" selected>Pending</option>
+  <option value="seen">Seen</option>
+</select>
+            </tr>              
+              
+              <tr>
+                
+                <td><input type="submit" [disabled]="userlogin.form.invalid" value="Submit" /></td>                  
+              </tr>             
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+</div>
